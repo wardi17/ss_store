@@ -29,15 +29,40 @@ export function renderNominalOptions(containerId) {
   if (!container) return;
 
   container.innerHTML = nominalList.map(item => `
-    <div class="col-6 col-sm-4">
-      <div class="option-card js-option-nominal text-center" data-id="${item.id}" data-title="${item.title}" data-price="${item.price}">
-        <img src="${item.image}" alt="${item.title}" class="img-option mb-2" onerror="this.src='https://cdn-icons-png.flaticon.com/512/272/272525.png'">
-        <div class="fw-bold text-white fs-7 text-truncate">${item.title}</div>
-        <div class="text-cyan fw-semibold fs-7 mt-1">${item.price}</div>
+    <div class="col-6 col-md-4 col-lg-3">
+      <div 
+        class="option-card js-option-nominal"
+        data-id="${item.id}"
+        data-title="${item.title}"
+        data-price="${item.price}"
+      >
+        <div class="product-image-wrap">
+          <img 
+            src="${item.image}" 
+            alt="${item.title}" 
+            class="img-option"
+            onerror="this.src='https://cdn-icons-png.flaticon.com/512/272/272525.png'"
+          >
+        </div>
+
+        <div class="product-info">
+          <div class="product-title">
+            ${item.title}
+          </div>
+
+          <div class="product-price">
+            ${item.price}
+          </div>
+        </div>
+
+        <div class="card-check">
+          <i class="bi bi-check-lg"></i>
+        </div>
       </div>
     </div>
   `).join('');
 }
+
 
 /**
  * Render Pilihan Pembayaran
@@ -47,13 +72,36 @@ export function renderPaymentOptions(containerId) {
   if (!container) return;
 
   container.innerHTML = paymentList.map(item => `
-    <div class="col-6 col-sm-4">
-      <div class="option-card js-option-payment text-center" data-id="${item.id}" data-name="${item.name}">
-        <div class="payment-logo-wrap mb-2">
-          <img src="${item.image}" alt="${item.name}" class="img-payment" onerror="this.style.display='none'">
+    <div class="col-6 col-md-4 col-lg-3">
+      <div 
+        class="option-card payment-card js-option-payment"
+        data-id="${item.id}"
+        data-name="${item.name}"
+      >
+
+        <div class="payment-logo-wrap">
+          <img 
+            src="${item.image}" 
+            alt="${item.name}" 
+            class="img-payment"
+            onerror="this.style.display='none'"
+          >
         </div>
-        <div class="fw-bold text-white fs-7 text-truncate">${item.name}</div>
-        <div class="text-secondary fs-7 mt-1">${item.category}</div>
+
+        <div class="product-info">
+          <div class="product-title">
+            ${item.name}
+          </div>
+
+          <div class="payment-category">
+            ${item.category}
+          </div>
+        </div>
+
+        <div class="card-check">
+          <i class="bi bi-check-lg"></i>
+        </div>
+
       </div>
     </div>
   `).join('');
