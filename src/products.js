@@ -29,7 +29,7 @@ export function renderNominalOptions(containerId) {
   if (!container) return;
 
   container.innerHTML = nominalList.map(item => `
-    <div class="col-6 col-md-4 col-lg-3">
+    <div class="col-12 col-md-4 col-lg-3">
       <div 
         class="option-card js-option-nominal"
         data-id="${item.id}"

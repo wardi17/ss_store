@@ -1,561 +1,199 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta
-        name="description"
-        content="RG Store - Layanan top up game dan e-wallet resmi, aman, dan cepat."
-    >
-
+    <meta name="description" content="SS Store - Layanan top up game dan e-wallet resmi, aman, dan cepat.">
     <meta name="theme-color" content="#0f172a">
-
     <title>SS Store - Top Up Official</title>
 
-    <!-- Favicon -->
-    <link
-        rel="icon"
-        type="image/png"
-        href="./assets/logo/ss01.png"
-    >
-
-    <!-- Bootstrap -->
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    >
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./css/styles.css">
+    <!-- Favicon & Styles -->
+    <link rel="icon" type="image/png" href="./assets/logo/ss01.png">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 
 <body data-merchant-id="402">
-
     <main class="app">
+        <!-- Background -->
+        <div id="sparkles-container" class="background-sparkles" aria-hidden="true"></div>
 
-        <!-- =========================================
-             BACKGROUND
-        ========================================== -->
-        <div
-            id="sparkles-container"
-            class="background-sparkles"
-            aria-hidden="true"
-        ></div>
-
-
-        <!-- =========================================
-             HEADER / BRAND
-        ========================================== -->
+        <!-- Header / Brand -->
         <header class="store-header text-center">
             <div class="store-logo">
-                <img
-                    src="./assets/logo/ss01.png"
-                    alt="SS Store Logo"
-                    class="img-fluid"
-                >
+                <img src="./assets/logo/ss01.png" alt="SS Store Logo" class="img-fluid">
             </div>
-
-            <h1 class="store-title">
-                SS Store
-            </h1>
-
+            <h1 class="store-title">SS Store</h1>
             <p class="store-subtitle">
                 Top Up Game & E-Wallet
-                <span class="badge rounded-pill">
-                    Fast Processing
-                </span>
+                <span class="badge rounded-pill">Fast Processing</span>
             </p>
-
             <div class="store-features">
-                <span>
-                    <i class="bi bi-shield-check"></i>
-                    Aman
-                </span>
-
-                <span>
-                    <i class="bi bi-lightning-charge"></i>
-                    Cepat
-                </span>
-
-                <span>
-                    <i class="bi bi-headset"></i>
-                    Support
-                </span>
+                <span><i class="bi bi-shield-check"></i> Aman</span>
+                <span><i class="bi bi-lightning-charge"></i> Cepat</span>
+                <span><i class="bi bi-headset"></i> Support</span>
             </div>
         </header>
 
-
-        <!-- =========================================
-             MAIN CHECKOUT
-        ========================================== -->
+        <!-- Main Checkout Form -->
         <section class="checkout-container">
-
             <form id="topup-form" novalidate>
 
-                <!-- =====================================
-                     STEP 1 - ACCOUNT
-                ====================================== -->
+                <!-- Step 1: Account -->
                 <section class="checkout-card">
-
                     <div class="step-header">
-                        <div class="step-number">
-                            1
-                        </div>
-
+                        <div class="step-number">1</div>
                         <div>
-                            <h2 class="step-title">
-                                Data Akun
-                            </h2>
-
-                            <p class="step-description">
-                                Masukkan User ID game kamu
-                            </p>
+                            <h2 class="step-title">Data Akun</h2>
+                            <p class="step-description">Masukkan User ID game kamu</p>
                         </div>
                     </div>
-
                     <div class="form-group">
-
-                        <label
-                            for="user-id"
-                            class="form-label"
-                        >
-                            User ID Game
-                        </label>
-
+                        <label for="user-id" class="form-label">User ID Game</label>
                         <div class="input-wrapper">
-
                             <i class="bi bi-person"></i>
-
-                            <input
-                                type="text"
-                                id="user-id"
-                                name="user_id"
-                                class="form-control form-control-custom"
-                                placeholder="Contoh: 12345678"
-                                autocomplete="off"
-                                inputmode="numeric"
-                                required
-                            >
-
+                            <input type="text" id="user-id" name="user_id" class="form-control form-control-custom" placeholder="Contoh: 12345678" autocomplete="off" inputmode="numeric" required>
                         </div>
-
                         <div class="form-help">
                             <i class="bi bi-info-circle"></i>
-
-                            <span>
-                                User ID dapat dilihat pada profil akun game kamu.
-                            </span>
+                            <span>User ID dapat dilihat pada profil akun game kamu.</span>
                         </div>
-
                     </div>
-
                 </section>
 
-
-                <!-- =====================================
-                     STEP 2 - NOMINAL
-                ====================================== -->
+                <!-- Step 2: Nominal -->
                 <section class="checkout-card">
-
                     <div class="step-header">
-
-                        <div class="step-number">
-                            2
-                        </div>
-
+                        <div class="step-number">2</div>
                         <div>
-                            <h2 class="step-title">
-                                Pilih Nominal
-                            </h2>
-
-                            <p class="step-description">
-                                Pilih nominal top up yang kamu inginkan
-                            </p>
+                            <h2 class="step-title">Pilih Nominal</h2>
+                            <p class="step-description">Pilih nominal top up yang kamu inginkan</p>
                         </div>
-
                     </div>
-
-                    <!--
-                        Data nominal dirender oleh JavaScript
-                    -->
-                    <div
-                        id="nominal-grid"
-                        class="product-grid"
-                    ></div>
-
+                    <div id="nominal-grid" class="product-grid"></div>
                 </section>
 
-
-                <!-- =====================================
-                     STEP 3 - PAYMENT
-                ====================================== -->
+                <!-- Step 3: Payment -->
                 <section class="checkout-card">
-
                     <div class="step-header">
-
-                        <div class="step-number">
-                            3
-                        </div>
-
+                        <div class="step-number">3</div>
                         <div>
-                            <h2 class="step-title">
-                                Pembayaran
-                            </h2>
-
-                            <p class="step-description">
-                                Pilih metode pembayaran
-                            </p>
+                            <h2 class="step-title">Pembayaran</h2>
+                            <p class="step-description">Pilih metode pembayaran</p>
                         </div>
-
                     </div>
-
-                    <!--
-                        Data pembayaran dirender oleh JavaScript
-                    -->
-                    <div
-                        id="payment-grid"
-                        class="product-grid"
-                    ></div>
-
+                    <div id="payment-grid" class="product-grid"></div>
                 </section>
 
-
-                <!-- =====================================
-                     STEP 4 - CUSTOMER
-                ====================================== -->
+                <!-- Step 4: Confirmation -->
                 <section class="checkout-card">
-
                     <div class="step-header">
-
-                        <div class="step-number">
-                            4
-                        </div>
-
+                        <div class="step-number">4</div>
                         <div>
-                            <h2 class="step-title">
-                                Konfirmasi
-                            </h2>
-
-                            <p class="step-description">
-                                Periksa pesanan sebelum dikirim
-                            </p>
+                            <h2 class="step-title">Konfirmasi</h2>
+                            <p class="step-description">Periksa pesanan sebelum dikirim</p>
                         </div>
-
                     </div>
 
-
-                    <!-- WhatsApp -->
                     <div class="form-group mb-4">
-
-                        <label
-                            for="user-phone"
-                            class="form-label"
-                        >
-                            Nomor WhatsApp
-                        </label>
-
+                        <label for="user-phone" class="form-label">Nomor WhatsApp</label>
                         <div class="input-wrapper">
-
                             <i class="bi bi-whatsapp"></i>
-
-                            <input
-                                type="tel"
-                                id="user-phone"
-                                name="phone"
-                                class="form-control form-control-custom"
-                                placeholder="08xxxxxxxxxx"
-                                autocomplete="tel"
-                                inputmode="tel"
-                                required
-                            >
-
+                            <input type="tel" id="user-phone" name="phone" class="form-control form-control-custom" placeholder="08xxxxxxxxxx" autocomplete="tel" inputmode="tel" required>
                         </div>
-
                         <div class="form-help">
                             <i class="bi bi-info-circle"></i>
-
-                            <span>
-                                Nomor WhatsApp digunakan untuk konfirmasi pesanan.
-                            </span>
+                            <span>Nomor WhatsApp digunakan untuk konfirmasi pesanan.</span>
                         </div>
-
                     </div>
 
-
-                    <!-- =================================
-                         ORDER SUMMARY
-                    ================================== -->
-                    <div
-                        id="order-summary"
-                        class="order-summary d-none"
-                    >
-
+                    <!-- Order Summary -->
+                    <div id="order-summary" class="order-summary d-none">
                         <div class="summary-header">
-                            <span>
-                                <i class="bi bi-receipt"></i>
-                                Ringkasan Pesanan
-                            </span>
+                            <span><i class="bi bi-receipt"></i> Ringkasan Pesanan</span>
                         </div>
-
                         <div class="summary-list">
-
-                            <div class="summary-item">
-                                <span>Game</span>
-                                <strong id="summary-game">
-                                    -
-                                </strong>
-                            </div>
-
-                            <div class="summary-item">
-                                <span>User ID</span>
-                                <strong id="summary-user-id">
-                                    -
-                                </strong>
-                            </div>
-
-                            <div class="summary-item">
-                                <span>Nominal</span>
-                                <strong id="summary-nominal">
-                                    -
-                                </strong>
-                            </div>
-
-                            <div class="summary-item">
-                                <span>Pembayaran</span>
-                                <strong id="summary-payment">
-                                    -
-                                </strong>
-                            </div>
-
-                            <div class="summary-total">
-                                <span>Total</span>
-
-                                <strong id="summary-total">
-                                    Rp 0
-                                </strong>
-                            </div>
-
+                            <div class="summary-item"><span>Game</span><strong id="summary-game">-</strong></div>
+                            <div class="summary-item"><span>User ID</span><strong id="summary-user-id">-</strong></div>
+                            <div class="summary-item"><span>Nominal</span><strong id="summary-nominal">-</strong></div>
+                            <div class="summary-item"><span>Pembayaran</span><strong id="summary-payment">-</strong></div>
+                            <div class="summary-total"><span>Total</span><strong id="summary-total">Rp 0</strong></div>
                         </div>
-
                     </div>
 
-
-                    <!-- =================================
-                         SUBMIT
-                    ================================== -->
-                    <button
-                        type="submit"
-                        id="btn-submit"
-                        class="btn btn-submit w-100"
-                    >
-
+                    <button type="submit" id="btn-submit" class="btn btn-submit w-100">
                         <i class="bi bi-whatsapp"></i>
-
-                        <span>
-                            Kirim Pesanan via WhatsApp
-                        </span>
-
+                        <span>Kirim Pesanan via WhatsApp</span>
                     </button>
 
                     <p class="checkout-note">
                         <i class="bi bi-lock-fill"></i>
                         Data kamu aman dan tidak dibagikan kepada pihak lain.
                     </p>
-
                 </section>
-
             </form>
-
         </section>
 
-
-        <!-- =========================================
-             CHECK TRANSACTION
-        ========================================== -->
+        <!-- Check Transaction Section -->
         <section class="transaction-section">
-
             <div class="transaction-card">
-
                 <div class="transaction-icon">
                     <i class="bi bi-search"></i>
                 </div>
-
                 <div class="transaction-content">
-
-                    <h2>
-                        Sudah melakukan pemesanan?
-                    </h2>
-
-                    <p>
-                        Cek status transaksi menggunakan User ID game kamu.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="btn btn-outline-light"
-                        data-bs-toggle="modal"
-                        data-bs-target="#modalTransaksi"
-                    >
-                        <i class="bi bi-receipt me-1"></i>
-                        Cek Transaksi
+                    <h2>Sudah melakukan pemesanan?</h2>
+                    <p>Cek status transaksi menggunakan User ID game kamu.</p>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#modalTransaksi">
+                        <i class="bi bi-receipt me-1"></i> Cek Transaksi
                     </button>
-
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- =========================================
-             FOOTER
-        ========================================== -->
+        <!-- Footer -->
         <footer class="store-footer">
-
             <div class="footer-brand">
-                <img
-                    src="./assets/logo/ss01.png"
-                    alt="SS Store"
-                >
-
-                <span>
-                    RG Store
-                </span>
+                <img src="./assets/logo/ss01.png" alt="SS Store">
+                <span>SS Store</span>
             </div>
-
-            <p>
-                © <span id="current-year"></span>
-                RG Store. All rights reserved.
-            </p>
-
+            <p>© <span id="current-year"></span> SS Store. All rights reserved.</p>
         </footer>
-
     </main>
 
-
-    <!-- =============================================
-         MODAL CHECK TRANSACTION
-    ============================================== -->
-    <div
-        class="modal fade"
-        id="modalTransaksi"
-        tabindex="-1"
-        aria-labelledby="modalTransaksiLabel"
-        aria-hidden="true"
-    >
-
+    <!-- Modal Check Transaction -->
+    <div class="modal fade" id="modalTransaksi" tabindex="-1" aria-labelledby="modalTransaksiLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-
             <div class="modal-content transaction-modal">
-
                 <div class="modal-header">
-
                     <div>
-
-                        <h2
-                            class="modal-title"
-                            id="modalTransaksiLabel"
-                        >
-                            <i class="bi bi-search"></i>
-                            Cek Transaksi
+                        <h2 class="modal-title" id="modalTransaksiLabel">
+                            <i class="bi bi-search"></i> Cek Transaksi
                         </h2>
-
-                        <p class="modal-description">
-                            Masukkan User ID untuk melihat pesanan.
-                        </p>
-
+                        <p class="modal-description">Masukkan User ID untuk melihat pesanan.</p>
                     </div>
-
-                    <button
-                        type="button"
-                        class="btn-close btn-close-white"
-                        data-bs-dismiss="modal"
-                        aria-label="Tutup"
-                    ></button>
-
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Tutup"></button>
                 </div>
-
-
                 <div class="modal-body">
-
                     <div class="form-group">
-
-                        <label
-                            for="searchUserId"
-                            class="form-label"
-                        >
-                            User ID Game
-                        </label>
-
+                        <label for="searchUserId" class="form-label">User ID Game</label>
                         <div class="input-wrapper">
-
                             <i class="bi bi-person"></i>
-
-                            <input
-                                type="text"
-                                id="searchUserId"
-                                class="form-control form-control-custom"
-                                placeholder="Contoh: 12345678"
-                                inputmode="numeric"
-                            >
-
+                            <input type="text" id="searchUserId" class="form-control form-control-custom" placeholder="Contoh: 12345678" inputmode="numeric">
                         </div>
-
                     </div>
-
-
-                    <button
-                        type="button"
-                        id="btn-check-transaction"
-                        class="btn btn-gradient-action w-100 mt-3"
-                    >
-
+                    <button type="button" id="btn-check-transaction" class="btn btn-gradient-action w-100 mt-3">
                         <i class="bi bi-search"></i>
-
-                        <span>
-                            Cek Pesanan
-                        </span>
-
+                        <span>Cek Pesanan</span>
                     </button>
-
-
-                    <!-- Result -->
-                    <div
-                        id="transaksiResult"
-                        class="transaction-result mt-3"
-                        aria-live="polite"
-                    ></div>
-
+                    <div id="transaksiResult" class="transaction-result mt-3" aria-live="polite"></div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
-
-    <!-- =============================================
-         JAVASCRIPT
-    ============================================== -->
-
-    <!-- Bootstrap -->
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-</script>
-
-    <!-- Application -->
-    <script
-        type="module"
-        src="./src/main.js"
-    ></script>
-
+    <!-- JavaScript -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./src/main.js"></script>
 </body>
 </html>
-
